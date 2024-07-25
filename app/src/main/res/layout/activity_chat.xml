@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+            <variable
+                name="vm"
+                type="com.example.chat.projectPackeges.ui.chat_packege.ChatViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/app_bg"
+        android:padding="15dp"
+        tools:context=".projectPackeges.ui.chat_packege.ChatActivity">
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:backgroundTint="@color/transparent"
+            >
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <ImageView
+                    android:id="@+id/ic_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:src="@drawable/ic_back"
+                    />
+                <ImageView
+                    android:id="@+id/ic_more"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="end"
+                    android:padding="3dp"
+                    android:src="@drawable/ic_more"
+                    />
+                <TextView
+                    android:id="@+id/room_name_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{vm.roomNameLiveData}"
+                    android:layout_gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="22dp"
+                    android:textColor="@color/white"
+                    />
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <include
+            android:id="@+id/content"
+            layout="@layout/content_chat"
+            app:vm="@{vm}"
+            />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>
